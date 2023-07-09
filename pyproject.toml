@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "util-with-streamlit"
+version = "0.1.0"
+description = ""
+authors = ["Jun Park <pj2417@gmail.com>"]
+readme = "README.md"
+# packages = [{include = "util_with_streamlit"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.24.1"
+yt-dlp = "^2023.7.6"
+pydub = "^0.25.1"
+langchain = "^0.0.228"
+openai = "^0.27.8"
+python-ulid = "^1.1.0"
+youtube-transcript-api = "^0.6.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+pre-commit = "^3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
