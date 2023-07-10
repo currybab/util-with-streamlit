@@ -12,6 +12,11 @@ from langchain.document_loaders import YoutubeLoader
 main_save_dir = "downloads/youtube"
 youtube_lang = ["en", "es", "fr", "it", "ko", "ja"]
 
+st.set_page_config(
+    page_title="Youtube Transcript",
+    page_icon="🎞️",
+)
+
 
 @st.cache_data(show_spinner=False, persist=True)
 def transcriptFromAudio(link: str, openai_api_key: str, save_dir: str):
