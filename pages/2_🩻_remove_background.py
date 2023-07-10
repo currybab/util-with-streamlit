@@ -32,8 +32,8 @@ def fix_image(upload):
     col1.write("Original Image :camera:")
     col1.image(image)
 
-    rembg_session = new_session(model_name="u2net_human_seg")
-    fixed = remove(image, session=rembg_session)
+    # rembg_session = new_session(model_name="u2net_human_seg")
+    fixed = remove(image)
     col2.write("Fixed Image :wrench:")
     col2.image(fixed)
     st.sidebar.markdown("\n")
