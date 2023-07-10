@@ -27,13 +27,13 @@ def convert_image(img):
 
 
 # Package the transform into a function
-def fix_image(upload):
+def fix_image(upload, model_name):
     image = Image.open(upload)
     col1.write("Original Image :camera:")
     col1.image(image)
 
-    # rembg_session = new_session(model_name="u2net_human_seg")
-    fixed = remove(image)
+    rembg_session = new_session(model_name="u2net_human_seg")
+    fixed = remove(image, session=rembg_session)
     col2.write("Fixed Image :wrench:")
     col2.image(fixed)
     st.sidebar.markdown("\n")
@@ -43,8 +43,20 @@ def fix_image(upload):
 
 
 # Create the file uploader
+model_name = st.sidebar.selectbox(
+    "Model Name",
+    (
+        "u2net",
+        "u2netp",
+        "u2net_human_seg",
+        "u2net_cloth_seg",
+        "silueta",
+        "isnet-general-use",
+        "isnet-anime",
+    ),
+)
 my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
 
 # Fix the image!
 if my_upload is not None:
-    fix_image(upload=my_upload)
+    fix_image(upload=my_upload, model_name=model_name)
